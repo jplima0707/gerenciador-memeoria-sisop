@@ -2,21 +2,23 @@ package Entities;
 
 public class Process {
     private int start;
-    private final int id;
-    private static int aux = 0;
     private int size;
+    private String id;
     private Process next;
 
-    public Process(int start, int size) {
-        this.id = aux;
-        this.start = start;
+    public Process(int size, String id) {
+        this.id = id;
+        this.start = -1;
         this.size = size;
         this.next = null;
-        aux++;
     }
     
-    public int getId() {
+    public String getId() {
         return id;
+    }
+
+    public void setId(String s){
+        this.id = s;
     }
 
     public int getStart() {
@@ -43,7 +45,4 @@ public class Process {
         this.next = next;
     }
 
-    public static void resetCounter() {
-        aux = 0;
-    }
 }

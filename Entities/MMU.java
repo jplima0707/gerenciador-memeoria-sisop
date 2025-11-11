@@ -1,20 +1,22 @@
 package Entities;
 
+import Strategies.IAllocationStrategy;
+
 public class MMU {
     private final Memory memory;
-    private final AllocationStrategy strategy;
+    private final IAllocationStrategy strategy;
 
-    public MMU(Memory memory, AllocationStrategy strategy) {
+    public MMU(Memory memory, IAllocationStrategy strategy) {
         this.memory = memory;
         this.strategy = strategy;
     }
 
-    public boolean allocate(int size) {
-        return strategy.allocate(memory, size);
+    public void allocate(Process p) {
+        strategy.allocate(p, memory);
     }
 
-    public void printMemoryState() {
-        memory.printFreeBlocks();
+    public void free(Process p) {
+        strategy.free(p, memory);
     }
 
     public Memory getMemory() {

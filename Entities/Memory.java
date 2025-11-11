@@ -10,7 +10,7 @@ public class Memory{
             throw new IllegalArgumentException("Memory size must be a power of 2 and greater than 0");
         }
         this.totalSize = size;
-        this.head = new Process(0, size);
+        this.head = null;
     }
 
     public int getTotalSize(){
